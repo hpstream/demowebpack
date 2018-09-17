@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>联想新用户礼包</title>
+    <script>
+        window.__cf = "<?php include_once (dirname(__FILE__)."/../../../webApi/genCSRFToken.php"); echo $randString;?>"; 
+    </script>
+</head>
+<body>
+    <div class='box none' id='app' >
+        <img :src="imgUrl" class="pointer-events" alt="">
+
+        <div class="content" >
+            <div >
+                <img :src="showState.reword" class='pointer-events' alt="">
+            </div>
+           <div class="btn" @click='get'>
+                <img :src="showState.get" alt="" >
+           </div>
+           <div class="info">              
+                <div class='head'><span>活动规则</span></div>
+                <ul>
+                    <li>
+                        <img src="./img/1.png" alt="">
+                        活动日期:{{time}}
+                        </li>
+                    <li>
+                            <img src="./img/2.png" alt="">
+                        活动期间，从{{title}}下载并注册玩吧的新用户，可在本页面一次性领取价值20元的新手特定礼包
+                        </li>
+                    <li>
+                            <img src="./img/3.png" alt="">
+                        领取后，可在背包中查看(在App内商城页面，点击右上角icon进入背包页面）
+                    </li>
+                    <li>
+                            <img src="./img/4.png" alt="">
+                        所有奖励自领取后开始计算使用期，使用期到期后礼物道具将不可用
+                        </li>
+                    <li>
+                            <img src="./img/5.png" alt="">
+                        如有任何问题，可通过玩吧小助理，联系客服进行咨询
+                        </li>
+                </ul>          
+           </div> 
+        </div>
+        <div class='alert' v-if='isalert' >
+           <div class='alert_box'>
+             <img :src="alertImg"  v-if='!closePage' class='pointer-events' alt="">
+             <img :src="alertImg"  v-if='closePage' alt="" class='pointer-events' class='closePage'>
+           </div>
+           <div class='confirm' @click='cancel'>
+                <img :src="confirm" alt="" >
+           </div>
+        </div>
+        <div class="copyright">
+            <span>最终解释权归玩吧所有</span>
+        </div>
+    </div>
+</body>
+</html>
