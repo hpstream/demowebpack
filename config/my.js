@@ -11,11 +11,12 @@ const md = require('markdown-it')({
     highlight: function (str, lang) {
       if (lang && hljs.getLanguage(lang)) {
         try {
-            var ssrrww = '<pre class="hljs"><code>'  + 
+            var myhtml = '<pre class="hljs"><code>'  + 
             hljs.highlight(lang, str, true).value +
             '</code></pre>';
+            // wb-cc是自定义vue组件
           return  `    <wb-cc> 
-                        <div slot="footer">${ssrrww}</div>
+                        <div slot="footer">${myhtml}</div>
                     </wb-cc>`
         } catch (__) {}
       }
@@ -35,8 +36,8 @@ md.use(require('markdown-it-container'), 'spoiler', {
         if (tokens[idx].nesting === 1) {
             var str = tokens[idx+1].content;
             const $ = cheerio.load(str);
-            var ww = $('template').html();
-        return `<div>${ww}</div>`+'<details><summary>' + m[1] + '</summary>\n';
+            var demoHtml = $('template').html();
+        return `<div>${demoHtml}</div>`+'<details><summary>' + m[1] + '</summary>\n';
         } else {
         return '</details>\n';
         }
